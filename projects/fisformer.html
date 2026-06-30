@@ -60,31 +60,40 @@
   
   .project-section { margin-bottom: 60px; }
   .project-text p { margin-bottom: 18px; font-size: 1.05rem; }
+
+  /* Citation & Contact */
+  .code-container { position: relative; background: #282c34; color: #abb2bf; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 20px 0; font-family: monospace; font-size: 14px;}
+  .copy-btn { position: absolute; top: 10px; right: 10px; background: #4b5263; color: white; border: none; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+  .copy-btn:hover { background: #5c6370; }
+  .contact-list { list-style: none; padding: 0; margin-top: 15px; font-size: 1.05rem; }
+  .contact-list li { margin-bottom: 8px; font-weight: 500; }
+  .contact-list li::before { content: "•"; color: var(--green); display: inline-block; width: 1em; }
   
   /* Feature List for Methodology */
   .method-list { list-style: none; margin: 20px 0; }
   .method-list li { position: relative; padding-left: 30px; margin-bottom: 15px; font-size: 1.05rem; }
   .method-list li::before { content: "→"; position: absolute; left: 0; color: var(--green); font-family: "IBM Plex Mono", monospace; font-weight: bold; }
-  .method-list strong { color: var(--green-deep); }
 
   /* Images Layout */
   .image-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 30px; }
-  .image-card img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-  .image-caption { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--muted); margin-top: 15px; font-style: italic; }
+  .image-card img { max-width: 100%; height: auto; max-height: 500px; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .image-caption { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--muted); margin-top: 15px; font-style: italic; text-align: center; }
 
   /* Two Column Image Grid */
   .image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   @media(max-width: 800px) { .image-grid { grid-template-columns: 1fr; } }
 
   /* Tables */
-  .table-container { overflow-x: auto; margin: 25px 0; background: var(--card); border-radius: 12px; border: 1px solid var(--line); }
+  .table-container { overflow-x: auto; margin: 15px 0 35px 0; background: var(--card); border-radius: 12px; border: 1px solid var(--line); }
   table { width: 100%; border-collapse: collapse; white-space: nowrap; }
-  th, td { padding: 12px 18px; text-align: left; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
-  th { background: rgba(27,70,43,.05); color: var(--green-deep); font-weight: 600; font-family: "IBM Plex Mono", monospace; font-size: 12px; text-transform: uppercase; }
+  th, td { padding: 12px 14px; text-align: center; border-bottom: 1px solid var(--line); font-size: 0.95rem; border-right: 1px solid rgba(27,70,43,.05); }
+  th { background: rgba(27,70,43,.05); color: var(--green-deep); font-weight: 600; font-family: "IBM Plex Mono", monospace; font-size: 12px; text-transform: none; }
+  th:first-child, td:first-child { text-align: left; font-weight: 500; }
   tr:last-child td { border-bottom: none; }
   tr:hover { background: rgba(27,70,43,.03); }
   .highlight-red { color: #d9534f; font-weight: 600; } 
   .highlight-blue { color: #0275d8; text-decoration: underline; }
+  .table-caption { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--muted); font-style: italic; margin-bottom: 10px; display: block; text-transform: none;}
 
   /* footer */
   footer{border-top:1px solid var(--line);padding:38px 0; margin-top: auto;}
@@ -109,7 +118,7 @@
       <a href="./" data-i18n="nav_projects">Projeler</a>
       <a class="nav-cta" href="../#iletisim" data-i18n="nav_contact">İletişim</a>
       
-      <select id="lang-selector">
+      <select id="lang-selector" style="background: transparent; border: 1px solid var(--line-strong); color: var(--green-deep); padding: 4px 8px; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; cursor: pointer; outline: none;">
         <option value="tr">TR</option>
         <option value="en">EN</option>
       </select>
@@ -121,7 +130,8 @@
   <section class="wrap">
     
     <div class="project-header">
-        <a href="./" style="display: inline-block; margin-bottom: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 600; color: var(--green); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--green-deep)'" onmouseout="this.style.color='var(--green)'">← <span data-i18n="nav_projects">Projeler</span></a>      <h1 class="project-title" data-i18n="proj_fisformer_title">FISformer: Zaman Serisi Tahmini İçin Bulanık Çıkarım Sistemli Transformer</h1>
+      <a href="./" style="display: inline-block; margin-bottom: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 600; color: var(--green); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--green-deep)'" onmouseout="this.style.color='var(--green)'">← <span data-i18n="nav_projects">Projeler</span></a>      
+      <h1 class="project-title" data-i18n="proj_fisformer_title">FISformer: Zaman Serisi Tahmini İçin Transformer Modellerinde Self-Attention'ı Bulanık Çıkarım Sistemi ile Değiştirmek</h1>
       <div class="project-meta">
         <span data-i18n="proj_fisformer_authors">Bülent HAZNEDAR ve Levent KARACAN</span>
         <a href="https://doi.org/10.1109/TFUZZ.2026.3690012" target="_blank" class="nav-cta" data-i18n="proj_fisformer_doi">DOI: 10.1109/TFUZZ.2026.3690012</a>
@@ -156,36 +166,131 @@
     </div>
 
     <div class="project-section project-text">
-      <h2 style="margin-bottom: 15px;" data-i18n="proj_fisformer_dataset_title">Kullanılan Veri Setleri (Benchmark)</h2>
-      <p data-i18n="proj_fisformer_dataset_desc">Önerilen modelin performansı 7 farklı gerçek dünya çok değişkenli zaman serisi veri seti üzerinde test edilmiştir:</p>
+      <h2 style="margin-bottom: 25px;" data-i18n="proj_fisformer_dataset_title">Kullanılan Veri Setleri (Benchmark)</h2>
       
+      <span class="table-caption" data-i18n="proj_tab1_desc">Tablo I. Girdi boyutları, örnek sayısı, tahmin dizisi uzunluğu ve zaman frekansı dahil olmak üzere detaylı veri seti açıklamaları.</span>
       <div class="table-container">
         <table>
           <thead>
             <tr>
-              <th data-i18n="proj_fisformer_table_dataset">Veri Seti</th>
-              <th data-i18n="proj_fisformer_table_dim">Değişken</th>
-              <th>Dizi Uzunlukları</th>
-              <th data-i18n="proj_fisformer_table_freq">Frekans</th>
+              <th data-i18n="proj_fisformer_table_dataset">Dataset</th>
+              <th data-i18n="proj_fisformer_table_dim">Dim</th>
+              <th data-i18n="proj_fisformer_table_pred_len">Prediction Length</th>
+              <th data-i18n="proj_fisformer_table_size">Dataset Size</th>
+              <th data-i18n="proj_fisformer_table_freq">Frequency</th>
+              <th data-i18n="proj_fisformer_table_info">Information</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>ETTh1, ETTh2</td><td>7</td><td>(96, 192, 336, 720)</td><td>Hourly</td></tr>
-            <tr><td>ETTm1, ETTm2</td><td>7</td><td>(96, 192, 336, 720)</td><td>15 min</td></tr>
-            <tr><td>Weather</td><td>21</td><td>(96, 192, 336, 720)</td><td>10 min</td></tr>
-            <tr><td>Exchange</td><td>8</td><td>(96, 192, 336, 720)</td><td>Daily</td></tr>
-            <tr><td>ECL</td><td>321</td><td>(96, 192, 336, 720)</td><td>Hourly</td></tr>
-            <tr><td>Traffic</td><td>862</td><td>(96, 192, 336, 720)</td><td>Hourly</td></tr>
-            <tr><td>PEMS (03,04,07,08)</td><td>170 - 883</td><td>(12, 24, 48, 96)</td><td>5 min</td></tr>
+            <tr><td>ETTh1, ETTh2</td><td>7</td><td>{96, 192, 336, 720}</td><td>(8545, 2881, 2881)</td><td>Hourly</td><td>Electricity</td></tr>
+            <tr><td>ETTm1, ETTm2</td><td>7</td><td>{96, 192, 336, 720}</td><td>(34465, 11521, 11521)</td><td>15min</td><td>Electricity</td></tr>
+            <tr><td>Exchange</td><td>8</td><td>{96, 192, 336, 720}</td><td>(5120, 665, 1422)</td><td>Daily</td><td>Economy</td></tr>
+            <tr><td>Weather</td><td>21</td><td>{96, 192, 336, 720}</td><td>(36792, 5271, 10540)</td><td>10min</td><td>Weather</td></tr>
+            <tr><td>ECL</td><td>321</td><td>{96, 192, 336, 720}</td><td>(18317, 2633, 5261)</td><td>Hourly</td><td>Electricity</td></tr>
+            <tr><td>Traffic</td><td>862</td><td>{96, 192, 336, 720}</td><td>(12185, 1757, 3509)</td><td>Hourly</td><td>Transportation</td></tr>
+            <tr><td>Solar-Energy</td><td>137</td><td>{96, 192, 336, 720}</td><td>(36601, 5161, 10417)</td><td>10min</td><td>Energy</td></tr>
+            <tr><td>PEMS03</td><td>358</td><td>{12, 24, 48, 96}</td><td>(15617, 5135, 5135)</td><td>5min</td><td>Transportation</td></tr>
+            <tr><td>PEMS04</td><td>307</td><td>{12, 24, 48, 96}</td><td>(10172, 3375, 3375)</td><td>5min</td><td>Transportation</td></tr>
+            <tr><td>PEMS07</td><td>883</td><td>{12, 24, 48, 96}</td><td>(16911, 5622, 5622)</td><td>5min</td><td>Transportation</td></tr>
+            <tr><td>PEMS08</td><td>170</td><td>{12, 24, 48, 96}</td><td>(10690, 3548, 3548)</td><td>5min</td><td>Transportation</td></tr>
           </tbody>
         </table>
       </div>
     </div>
 
     <div class="project-section project-text">
-      <h2 style="margin-bottom: 15px;" data-i18n="proj_fisformer_perf_title">Performans ve Ablasyon Analizi</h2>
-      <p data-i18n="proj_fisformer_perf_desc">FISformer, MSE ve MAE metriklerinde diğer tüm mimarileri geride bırakmıştır...</p>
+      <h2 style="margin-bottom: 25px;" data-i18n="proj_fisformer_perf_title">Performans ve Ablasyon Analizi</h2>
       
+      <span class="table-caption" data-i18n="proj_tab2_desc">Tablo II. Farklı tahmin uzunlukları üzerinden MSE ve MAE metrikleriyle ortalama tahmin performansı. En iyi sonuçlar kırmızı, en iyi ikinci sonuçlar mavi ile vurgulanmıştır.</span>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th rowspan="2" data-i18n="proj_fisformer_table_model">Model</th>
+              <th colspan="2">FISformer (Ours)</th>
+              <th colspan="2">iTransformer (2024)</th>
+              <th colspan="2">Crossformer (2023)</th>
+              <th colspan="2">Fedformer (2022)</th>
+              <th colspan="2">Autoformer (2021)</th>
+              <th colspan="2">Informer (2021)</th>
+            </tr>
+            <tr>
+              <th>MSE</th><th>MAE</th>
+              <th>MSE</th><th>MAE</th>
+              <th>MSE</th><th>MAE</th>
+              <th>MSE</th><th>MAE</th>
+              <th>MSE</th><th>MAE</th>
+              <th>MSE</th><th>MAE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ECL</td>
+              <td class="highlight-red">0.172</td><td class="highlight-red">0.262</td>
+              <td class="highlight-blue">0.178</td><td class="highlight-blue">0.270</td>
+              <td>0.244</td><td>0.334</td>
+              <td>0.214</td><td>0.327</td>
+              <td>0.227</td><td>0.338</td>
+              <td>0.392</td><td>0.448</td>
+            </tr>
+            <tr>
+              <td>ETT (Avg)</td>
+              <td class="highlight-red">0.375</td><td class="highlight-red">0.395</td>
+              <td class="highlight-blue">0.383</td><td class="highlight-blue">0.399</td>
+              <td>0.685</td><td>0.578</td>
+              <td>0.407</td><td>0.428</td>
+              <td>0.465</td><td>0.459</td>
+              <td>1.342</td><td>0.859</td>
+            </tr>
+            <tr>
+              <td>Exchange</td>
+              <td class="highlight-red">0.356</td><td class="highlight-red">0.402</td>
+              <td class="highlight-blue">0.360</td><td class="highlight-blue">0.403</td>
+              <td>0.940</td><td>0.707</td>
+              <td>0.519</td><td>0.429</td>
+              <td>0.613</td><td>0.539</td>
+              <td>-</td><td>-</td>
+            </tr>
+            <tr>
+              <td>Traffic</td>
+              <td class="highlight-red">0.417</td><td class="highlight-red">0.279</td>
+              <td class="highlight-blue">0.428</td><td class="highlight-blue">0.282</td>
+              <td>0.550</td><td>0.304</td>
+              <td>0.610</td><td>0.376</td>
+              <td>0.628</td><td>0.379</td>
+              <td>-</td><td>-</td>
+            </tr>
+            <tr>
+              <td>Weather</td>
+              <td class="highlight-red">0.256</td><td class="highlight-red">0.277</td>
+              <td class="highlight-blue">0.258</td><td class="highlight-blue">0.278</td>
+              <td>0.259</td><td>0.315</td>
+              <td>0.309</td><td>0.360</td>
+              <td>0.338</td><td>0.382</td>
+              <td>0.574</td><td>0.552</td>
+            </tr>
+            <tr>
+              <td>Solar-Energy</td>
+              <td class="highlight-red">0.232</td><td class="highlight-red">0.261</td>
+              <td class="highlight-blue">0.233</td><td class="highlight-blue">0.262</td>
+              <td>0.641</td><td>0.639</td>
+              <td>0.291</td><td>0.381</td>
+              <td>0.885</td><td>0.711</td>
+              <td>-</td><td>-</td>
+            </tr>
+            <tr>
+              <td>PEMS (Avg)</td>
+              <td class="highlight-blue">0.122</td><td class="highlight-blue">0.219</td>
+              <td class="highlight-red">0.119</td><td class="highlight-red">0.218</td>
+              <td>0.220</td><td>0.304</td>
+              <td>0.224</td><td>0.327</td>
+              <td>0.614</td><td>0.575</td>
+              <td>-</td><td>-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <div class="image-grid">
         <div class="image-card">
           <img src="../images/fig4.png" alt="Traffic & ECL Results" />
@@ -197,53 +302,94 @@
         </div>
       </div>
 
+      <span class="table-caption" data-i18n="proj_tab6_desc" style="margin-top: 40px;">Tablo VI. Farklı veri setleri üzerinde standart self-attention'a (Ablasyon) kıyasla FIS Interaction mekanizmasının etkisi.</span>
       <div class="table-container">
         <table>
           <thead>
             <tr>
-              <th data-i18n="proj_fisformer_table_dataset">Veri Seti</th>
-              <th data-i18n="proj_fisformer_table_model">Model</th>
-              <th>MSE</th>
-              <th>MAE</th>
+              <th rowspan="2">Datasets</th>
+              <th colspan="2">w/Self-Attention</th>
+              <th colspan="2">w/FIS Interaction</th>
+              <th colspan="2">Improvement</th>
+            </tr>
+            <tr>
+              <th>MSE</th><th>MAE</th>
+              <th>MSE</th><th>MAE</th>
+              <th>MSE</th><th>MAE</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td rowspan="2" style="font-weight: 500;">ECL</td>
-              <td>FISformer (Ours)</td>
-              <td class="highlight-red">0.172</td>
-              <td class="highlight-red">0.262</td>
+              <td>ECL</td>
+              <td>0.178</td><td>0.270</td>
+              <td>0.172</td><td>0.262</td>
+              <td>3.6%</td><td>2.7%</td>
             </tr>
             <tr>
-              <td>iTransformer (2024)</td>
-              <td class="highlight-blue">0.178</td>
-              <td class="highlight-blue">0.270</td>
+              <td>ETT (Avg)</td>
+              <td>0.383</td><td>0.399</td>
+              <td>0.375</td><td>0.395</td>
+              <td>2.1%</td><td>1.1%</td>
             </tr>
             <tr>
-              <td rowspan="2" style="font-weight: 500; border-top: 1px solid var(--line);">Traffic</td>
-              <td style="border-top: 1px solid var(--line);">FISformer (Ours)</td>
-              <td class="highlight-red" style="border-top: 1px solid var(--line);">0.417</td>
-              <td class="highlight-red" style="border-top: 1px solid var(--line);">0.279</td>
+              <td>Exchange</td>
+              <td>0.360</td><td>0.403</td>
+              <td>0.356</td><td>0.402</td>
+              <td>1.3%</td><td>0.9%</td>
             </tr>
             <tr>
-              <td>Self-Attention (Ablation)</td>
-              <td>0.428</td>
-              <td>0.282</td>
+              <td>Traffic</td>
+              <td>0.428</td><td>0.282</td>
+              <td>0.417</td><td>0.279</td>
+              <td>2.6%</td><td>1.2%</td>
             </tr>
             <tr>
-              <td rowspan="2" style="font-weight: 500; border-top: 1px solid var(--line);">Weather</td>
-              <td style="border-top: 1px solid var(--line);">FISformer (Ours)</td>
-              <td class="highlight-red" style="border-top: 1px solid var(--line);">0.256</td>
-              <td class="highlight-red" style="border-top: 1px solid var(--line);">0.277</td>
+              <td>Weather</td>
+              <td>0.258</td><td>0.278</td>
+              <td>0.256</td><td>0.277</td>
+              <td>0.6%</td><td>0.3%</td>
             </tr>
             <tr>
-              <td>Self-Attention (Ablation)</td>
-              <td>0.258</td>
-              <td>0.278</td>
+              <td>Solar-Energy</td>
+              <td>0.233</td><td>0.262</td>
+              <td>0.232</td><td>0.261</td>
+              <td>0.3%</td><td>0.6%</td>
+            </tr>
+            <tr>
+              <td>PEMS (Avg)</td>
+              <td>0.119</td><td>0.218</td>
+              <td>0.122</td><td>0.219</td>
+              <td>-2.4%</td><td>-0.7%</td>
             </tr>
           </tbody>
         </table>
       </div>
+    </div>
+
+    <div style="border-top: 1px solid var(--line); padding-top: 40px;">
+      <h2 data-i18n="cite_title">Atıf (Citation)</h2>
+      <p data-i18n="cite_desc">Bu çalışmayı projelerinizde kullanırsanız lütfen makalemizi alıntılayın.</p>
+      
+      <div class="code-container">
+        <button class="copy-btn" onclick="copyCitation()" data-i18n="btn_copy">Kopyala</button>
+        <pre id="bibtex">
+@article{haznedar2026fisformer,
+  title={FISformer: Replacing Self-Attention with a Fuzzy Inference System in Transformer Models for Time Series Forecasting},
+  author={Haznedar, Bülent and Karacan, Levent},
+  journal={IEEE Transactions on Fuzzy Systems},
+  volume={34},
+  number={2},
+  year={2026},
+  doi={10.1109/TFUZZ.2026.3690012}
+}</pre>
+      </div>
+
+      <h2 data-i18n="contact_title" style="margin-top:40px;">İletişim (Contact)</h2>
+      <p data-i18n="contact_desc">Sorularınız veya kodun kullanımı hakkında detaylı bilgi için iletişime geçebilirsiniz:</p>
+      <ul class="contact-list">
+        <li>Bülent HAZNEDAR (haznedar@gaziantep.edu.tr)</li>
+        <li>Levent KARACAN (lkaracan@gantep.edu.tr)</li>
+      </ul>
     </div>
 
   </section>
@@ -260,6 +406,15 @@
 </footer>
 
 <script>
+  function copyCitation() {
+    const text = document.getElementById("bibtex").innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const currentLang = localStorage.getItem('selectedLang') || 'tr';
+      if(currentLang === 'tr') alert("Atıf kopyalandı!");
+      else alert("Citation copied!");
+    });
+  }
+  
   var hdr=document.getElementById('hdr');
   var onScroll=function(){hdr.classList.toggle('scrolled',window.scrollY>12)};
   onScroll();window.addEventListener('scroll',onScroll,{passive:true});
