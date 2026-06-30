@@ -156,14 +156,14 @@
 
 <header id="hdr">
   <div class="wrap nav">
-    <a class="brand" href="#top">
+    <a class="brand" href="./">
       <img src="images/deepolea-mark.png" data-i18n="alt_mark" alt="DeepOlea amblemi" />
       <span class="name">DeepOlea</span>
     </a>
     <nav class="nav-links">
       <a href="#yaptiklarimiz" data-i18n="nav_what_we_do">Ne yapıyoruz</a>
       <a href="#isim" data-i18n="nav_story">İsmin hikâyesi</a>
-      <a href="projects/index.html" data-i18n="nav_projects">Projeler</a>
+      <a href="projects/" data-i18n="nav_projects">Projeler</a>
       <a class="nav-cta" href="#iletisim" data-i18n="nav_contact">İletişim</a>
       
       <select id="lang-selector" style="background: transparent; border: 1px solid var(--line-strong); color: var(--green-deep); padding: 4px 8px; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; cursor: pointer; outline: none;">
@@ -176,7 +176,6 @@
 
 <main id="top">
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-glow" aria-hidden="true"></div>
     <div class="wrap hero-inner">
@@ -191,7 +190,6 @@
     </div>
   </section>
 
-  <!-- NE YAPIYORUZ -->
   <section class="block" id="yaptiklarimiz">
     <div class="wrap">
       <div class="section-head reveal">
@@ -218,7 +216,6 @@
     </div>
   </section>
 
-  <!-- İSMİN HİKÂYESİ -->
   <section class="block" id="isim">
     <div class="wrap story">
       <div class="reveal">
@@ -235,7 +232,6 @@
     </div>
   </section>
 
-  <!-- İLETİŞİM -->
   <section class="block block-alt" id="iletisim">
     <div class="wrap">
       <div class="contact reveal">
@@ -252,7 +248,7 @@
 
 <footer>
   <div class="wrap foot">
-    <a class="brand" href="#top">
+    <a class="brand" href="./">
       <img src="images/deepolea-mark.png" data-i18n="alt_mark" alt="DeepOlea amblemi" />
       <span class="name">DeepOlea</span>
     </a>
@@ -261,6 +257,7 @@
 </footer>
 
 <script>
+  // --- ARAYÜZ ANİMASYONLARI ---
   var hdr=document.getElementById('hdr');
   var onScroll=function(){hdr.classList.toggle('scrolled',window.scrollY>12)};
   onScroll();window.addEventListener('scroll',onScroll,{passive:true});
@@ -276,10 +273,9 @@
     items.forEach(function(el){io.observe(el)});
   }
 
-  // --- DİL YÖNETİMİ (i18n) ---
+  // --- DİL YÖNETİMİ VE OTOMATİK ALGILAMA ---
   async function loadLanguage(langCode) {
     try {
-      // Bulunulan klasöre göre dil dosyasının yolunu ayarla
       const pathPrefix = window.location.pathname.includes('/projects') ? '../' : '';
       const response = await fetch(`${pathPrefix}lang/${langCode}.json`);
       const translations = await response.json();
@@ -288,36 +284,43 @@
         const key = element.getAttribute('data-i18n');
         if (translations[key]) {
           if (element.tagName === 'META') {
-            element.setAttribute('content', translations[key]); // Meta etiketleri
+            element.setAttribute('content', translations[key]);
           } else if (element.tagName === 'IMG') {
-            element.setAttribute('alt', translations[key]); // Resimler
+            element.setAttribute('alt', translations[key]);
           } else {
-            element.innerHTML = translations[key]; // Metinler
+            element.innerHTML = translations[key];
           }
         }
       });
 
-      // Seçimi tarayıcının hafızasına kaydet
+      // Seçilen dili tarayıcı hafızasına güvenle kaydet
       localStorage.setItem('selectedLang', langCode);
       document.documentElement.lang = langCode;
 
-      // Açılır kutuyu (select) güncel tut
       const langSelector = document.getElementById('lang-selector');
       if(langSelector) {
         langSelector.value = langCode;
       }
-
     } catch (error) {
       console.error("Dil dosyası yüklenirken hata oluştu:", error);
     }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    // Sayfa yüklendiğinde hafızadaki dili oku, yoksa TR yap
-    const savedLang = localStorage.getItem('selectedLang') || 'tr';
-    loadLanguage(savedLang);
+    // Önce hafızaya bak, yoksa tarayıcı dilini algıla
+    let savedLang = localStorage.getItem('selectedLang');
+    
+    if (!savedLang) {
+      // Tarayıcı dilini al (Örn: 'tr-TR' veya 'en-US')
+      const browserLang = navigator.language || navigator.userLanguage;
+      // İlk iki harfi 'tr' ise Türkçe yap, değilse varsayılan 'en' olarak belirle
+      savedLang = browserLang.toLowerCase().startsWith('tr') ? 'tr' : 'en';
+    }
 
-    // Açılır kutudan yeni dil seçildiğinde çalışır
+    // Dili sisteme yükle
+    loadLanguage(savedLang); 
+
+    // Dropdown değiştiğinde...
     const langSelector = document.getElementById('lang-selector');
     if(langSelector) {
       langSelector.addEventListener('change', (event) => {
@@ -326,15 +329,11 @@
     }
   });
 
-  // YENİ EKLENEN: Başka bir sekmede dil değişirse bu sekmeyi de anında güncelle
+  // Başka bir sekmede dil değişirse bu sekmeyi de senkronize et
   window.addEventListener('storage', (event) => {
     if (event.key === 'selectedLang') {
       loadLanguage(event.newValue);
     }
-  });
-
-  document.addEventListener('DOMContentLoaded', () => {
-    loadLanguage('tr'); // Varsayılan dil
   });
 </script>
 </body>

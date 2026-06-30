@@ -73,6 +73,33 @@
   .section-head .eyebrow{display:block;margin-bottom:16px}
   .section-head h2{font-size:clamp(2rem,4.4vw,2.85rem);letter-spacing:-.015em}
 
+  /* ---------- Yatay Proje Kartları ---------- */
+  .project-list { display: flex; flex-direction: column; gap: 30px; margin-top: 30px; }
+  .project-card {
+    display: flex; background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    overflow: hidden; text-decoration: none; color: var(--ink);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+  .project-card:hover {
+    transform: translateY(-4px); box-shadow: 0 14px 34px rgba(27,70,43,.08); border-color: var(--line-strong);
+  }
+  .project-card-img {
+    width: 280px; min-width: 280px; background: #fff; border-right: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center; padding: 20px;
+  }
+  .project-card-img img { max-width: 100%; height: auto; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .project-card-content { padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+  .project-card-title { font-size: 1.6rem; margin-bottom: 12px; color: var(--green-deep); font-family: "Fraunces", Georgia, serif; }
+  .project-card-desc { font-size: 1.05rem; color: var(--muted); margin-bottom: 20px; line-height: 1.6; }
+  .project-card-meta { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--green); font-weight: 600; margin-top: auto; }
+  
+  @media(max-width: 768px) {
+    .project-card { flex-direction: column; }
+    .project-card-img { width: 100%; min-width: 100%; border-right: none; border-bottom: 1px solid var(--line); padding: 30px; }
+  }
+
+
+
   /* footer */
   footer{border-top:1px solid var(--line);padding:38px 0; margin-top: auto;}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
@@ -96,15 +123,15 @@
 
 <header id="hdr">
   <div class="wrap nav">
-    <a class="brand" href="../index.html">
+    <a class="brand" href="../">
       <img src="../images/deepolea-mark.png" data-i18n="alt_mark" alt="DeepOlea amblemi" />
       <span class="name">DeepOlea</span>
     </a>
     <nav class="nav-links">
-      <a href="#yaptiklarimiz" data-i18n="nav_what_we_do">Ne yapıyoruz</a>
-      <a href="#isim" data-i18n="nav_story">İsmin hikâyesi</a>
-      <a href="projects/index.html" data-i18n="nav_projects">Projeler</a>
-      <a class="nav-cta" href="#iletisim" data-i18n="nav_contact">İletişim</a>
+      <a href="../#yaptiklarimiz" data-i18n="nav_what_we_do">Ne yapıyoruz</a>
+      <a href="../#isim" data-i18n="nav_story">İsmin hikâyesi</a>
+      <a href="./" data-i18n="nav_projects">Projeler</a>
+      <a class="nav-cta" href="../#iletisim" data-i18n="nav_contact">İletişim</a>
       
       <select id="lang-selector" style="background: transparent; border: 1px solid var(--line-strong); color: var(--green-deep); padding: 4px 8px; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; cursor: pointer; outline: none;">
         <option value="tr">TR</option>
@@ -116,7 +143,6 @@
 
 <main id="top" style="flex: 1; padding-top: 120px; padding-bottom: 50px;">
 
-  <!-- PROJELER İÇERİK ALANI -->
   <section class="block" style="border-top: none;">
     <div class="wrap">
       <div class="section-head reveal">
@@ -124,10 +150,20 @@
         <h2 data-i18n="projects_page_title">Projeler</h2>
       </div>
       
-      <div class="reveal">
-        <p style="color: var(--muted); font-size: 1.1rem;" data-i18n="projects_page_desc">Geliştirilmekte olan derin öğrenme modelleri, U-Net ve Autoencoder mimarileri ile yürütülen araştırmalar ve diğer yazılım projeleri yakında bu alanda listelenecektir.</p>
-      </div>
-      
+      <div class="project-list reveal">
+        
+        <a href="fisformer.html" class="project-card">
+          <div class="project-card-img">
+            <img src="../images/fisformer-thumb.png" alt="FISformer Preview">
+          </div>
+          <div class="project-card-content">
+            <h3 class="project-card-title" data-i18n="proj_card_fisformer_title">FISformer: Zaman Serisi Tahmini</h3>
+            <p class="project-card-desc" data-i18n="proj_card_fisformer_desc">Transformer modellerindeki geleneksel self-attention mekanizmasını, belirsizlikleri modellemek ve yorumlanabilirliği artırmak amacıyla Bulanık Çıkarım Sistemi (FIS) ile değiştiren yenilikçi bir mimari.</p>
+            <span class="project-card-meta" data-i18n="proj_card_read_more">Projeyi İncele →</span>
+          </div>
+        </a>
+        
+        </div>
     </div>
   </section>
 
@@ -135,7 +171,7 @@
 
 <footer>
   <div class="wrap foot">
-    <a class="brand" href="../index.html">
+    <a class="brand" href="../">
       <img src="../images/deepolea-mark.png" data-i18n="alt_mark" alt="DeepOlea amblemi" />
       <span class="name">DeepOlea</span>
     </a>
@@ -144,6 +180,7 @@
 </footer>
 
 <script>
+  // --- ARAYÜZ ANİMASYONLARI ---
   var hdr=document.getElementById('hdr');
   var onScroll=function(){hdr.classList.toggle('scrolled',window.scrollY>12)};
   onScroll();window.addEventListener('scroll',onScroll,{passive:true});
@@ -159,10 +196,9 @@
     items.forEach(function(el){io.observe(el)});
   }
 
-  // --- DİL YÖNETİMİ (i18n) ---
+  // --- DİL YÖNETİMİ VE OTOMATİK ALGILAMA ---
   async function loadLanguage(langCode) {
     try {
-      // Bulunulan klasöre göre dil dosyasının yolunu ayarla
       const pathPrefix = window.location.pathname.includes('/projects') ? '../' : '';
       const response = await fetch(`${pathPrefix}lang/${langCode}.json`);
       const translations = await response.json();
@@ -171,36 +207,43 @@
         const key = element.getAttribute('data-i18n');
         if (translations[key]) {
           if (element.tagName === 'META') {
-            element.setAttribute('content', translations[key]); // Meta etiketleri
+            element.setAttribute('content', translations[key]);
           } else if (element.tagName === 'IMG') {
-            element.setAttribute('alt', translations[key]); // Resimler
+            element.setAttribute('alt', translations[key]);
           } else {
-            element.innerHTML = translations[key]; // Metinler
+            element.innerHTML = translations[key];
           }
         }
       });
 
-      // Seçimi tarayıcının hafızasına kaydet
+      // Seçilen dili tarayıcı hafızasına güvenle kaydet
       localStorage.setItem('selectedLang', langCode);
       document.documentElement.lang = langCode;
 
-      // Açılır kutuyu (select) güncel tut
       const langSelector = document.getElementById('lang-selector');
       if(langSelector) {
         langSelector.value = langCode;
       }
-
     } catch (error) {
       console.error("Dil dosyası yüklenirken hata oluştu:", error);
     }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    // Sayfa yüklendiğinde hafızadaki dili oku, yoksa TR yap
-    const savedLang = localStorage.getItem('selectedLang') || 'tr';
-    loadLanguage(savedLang);
+    // Önce hafızaya bak, yoksa tarayıcı dilini algıla
+    let savedLang = localStorage.getItem('selectedLang');
+    
+    if (!savedLang) {
+      // Tarayıcı dilini al (Örn: 'tr-TR' veya 'en-US')
+      const browserLang = navigator.language || navigator.userLanguage;
+      // İlk iki harfi 'tr' ise Türkçe yap, değilse varsayılan 'en' olarak belirle
+      savedLang = browserLang.toLowerCase().startsWith('tr') ? 'tr' : 'en';
+    }
 
-    // Açılır kutudan yeni dil seçildiğinde çalışır
+    // Dili sisteme yükle
+    loadLanguage(savedLang); 
+
+    // Dropdown değiştiğinde...
     const langSelector = document.getElementById('lang-selector');
     if(langSelector) {
       langSelector.addEventListener('change', (event) => {
@@ -209,15 +252,11 @@
     }
   });
 
-  // YENİ EKLENEN: Başka bir sekmede dil değişirse bu sekmeyi de anında güncelle
+  // Başka bir sekmede dil değişirse bu sekmeyi de senkronize et
   window.addEventListener('storage', (event) => {
     if (event.key === 'selectedLang') {
       loadLanguage(event.newValue);
     }
-  });
-
-  document.addEventListener('DOMContentLoaded', () => {
-    loadLanguage('tr'); // Varsayılan dil
   });
 </script>
 </body>

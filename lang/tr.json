@@ -2,18 +2,15 @@
   "page_title_home": "DeepOlea — Yapay Zekâ Tabanlı Bilişim Çözümleri",
   "page_title_projects": "DeepOlea — Projeler",
   "meta_description": "DeepOlea, yapay zekâ ve makine öğrenmesini gerçek dünya bilişim çözümlerine dönüştüren bir teknoloji şirketidir. Gaziantep merkezli.",
-  
   "nav_what_we_do": "Ne yapıyoruz",
   "nav_story": "İsmin hikâyesi",
   "nav_projects": "Projeler",
   "nav_contact": "İletişim",
-  
   "hero_eyebrow": "Yapay Zekâ Tabanlı Bilişim",
   "hero_title": "Köklü bilgelik,<br><span class=\"accent\">derin</span> zekâ.",
   "hero_sub": "Yapay zekâ ve makine öğrenmesini gerçek dünya bilişim çözümlerine dönüştürüyoruz — sağlam mühendislik, ölçülü tasarım ve kalıcı değerle.",
   "btn_contact": "İletişime geç",
   "btn_what_we_do": "Ne yapıyoruz",
-  
   "section_what_eyebrow": "Ne yapıyoruz",
   "section_what_title": "Araştırmadan üretime, uçtan uca.",
   "card_1_title": "Yapay Zekâ & Makine Öğrenmesi",
@@ -22,22 +19,46 @@
   "card_2_desc": "Web, mobil ve bulut tabanlı uygulamalar. Sağlam mimari, temiz kod ve sürdürülebilir sistemler.",
   "card_3_title": "Kurumsal & Akademik Çözümler",
   "card_3_desc": "Akreditasyon, değerlendirme ve süreç yönetimi için yapay zekâ destekli platformlar; kurumların işini kolaylaştıran araçlar.",
-  
   "section_story_eyebrow": "İsmin ardındaki",
   "section_story_p1": "<em>Olea</em>, zeytin ağacının Latince adıdır — Akdeniz'in kadim bilgelik simgesi, Athena'nın armağanı. Köklü, sabırlı, kalıcı.",
   "section_story_p2": "<em>Deep</em> ise derin öğrenmenin dili; katman katman düşünen, örüntüleri görebilen yapay zekânın.",
   "section_story_p3": "DeepOlea bu ikisini birleştirir: köklü bir bilgeliğe dayanan, derinlemesine düşünen teknoloji.",
   "section_story_small": "derin zekâ · köklü bilgelik",
-  
   "section_contact_eyebrow": "İletişim",
   "section_contact_title": "Birlikte bir şey kuralım.",
   "section_contact_desc": "Bir fikriniz, bir projeniz ya da bir sorunuz mu var? Konuşmaktan memnuniyet duyarız.",
   "contact_location": "Gaziantep, Türkiye",
-
   "projects_page_eyebrow": "Çalışmalar",
   "projects_page_title": "Projeler",
   "projects_page_desc": "Geliştirilmekte olan derin öğrenme modelleri, U-Net ve Autoencoder mimarileri ile yürütülen araştırmalar ve diğer yazılım projeleri yakında bu alanda listelenecektir.",
-  
   "alt_logo": "DeepOlea logo",
-  "alt_mark": "DeepOlea amblemi"
+  "alt_mark": "DeepOlea amblemi",
+
+  "proj_card_fisformer_title": "FISformer: Zaman Serisi Tahmini",
+  "proj_card_fisformer_desc": "Transformer modellerindeki geleneksel self-attention mekanizmasını, belirsizlikleri modellemek ve yorumlanabilirliği artırmak amacıyla Bulanık Çıkarım Sistemi (FIS) ile değiştiren yenilikçi bir mimari.",
+  "proj_card_read_more": "Projeyi İncele →",
+
+  "proj_fisformer_title": "FISformer: Zaman Serisi Tahmini İçin Bulanık Çıkarım Sistemli Transformer",
+  "proj_fisformer_authors": "Bülent HAZNEDAR ve Levent KARACAN",
+  "proj_fisformer_doi": "DOI: 10.1109/TFUZZ.2026.3690012",
+  "proj_fisformer_abstract_title": "Proje Özeti",
+  "proj_fisformer_abstract": "Transformer modelleri zaman serisi tahmininde büyük ilerleme kaydetmiş olsa da, deterministik nokta-çarpım dikkat (self-attention) mekanizmasına olan bağımlılıkları, çok değişkenli verilerdeki belirsizlikleri modelleme kapasitelerini sınırlar. FISformer, geleneksel dikkat mekanizmasını Bulanık Çıkarım Sistemi (FIS) ile değiştirerek, öğrenilebilir üyelik fonksiyonları ve kural tabanlı akıl yürütme sunar.",
+  "proj_fisformer_method_title": "Metodoloji: FIS Tabanlı Token Etkileşimi",
+  "proj_fisformer_method_desc": "FISformer, geleneksel dot-product (nokta çarpım) benzerlik hesaplaması yerine birinci dereceden Sugeno tipi bir Bulanık Çıkarım Sistemi (FIS) kullanır. Bu süreç dört ana aşamadan oluşur:",
+  "proj_fisformer_method_1": "Bulanıklaştırma (Fuzzification): Sorgu (Query) ve Anahtar (Key) matrisleri, öğrenilebilir Gauss üyelik fonksiyonları kullanılarak bulanık üyelik derecelerine dönüştürülür.",
+  "proj_fisformer_method_2": "Kural Oluşturma (Rule Generation): Çarpım tabanlı t-norm kullanılarak, oluşturulan bulanık kuralların aktivasyon gücü (firing strength) hesaplanır.",
+  "proj_fisformer_method_3": "Durulaştırma (Defuzzification): Her kuralın çıktısı ağırlıklı olarak toplanır ve tokenler arası ilişkinin gücünü gösteren Bulanık Etkileşim Haritası (Fuzzy Interaction Map) elde edilir.",
+  "proj_fisformer_method_4": "FIS Etkileşimi: Elde edilen harita softmax işleminden geçirilip Değer (Value) matrisiyle çarpılarak nihai bağlam temsilleri oluşturulur.",
+  "proj_fisformer_dataset_title": "Kullanılan Veri Setleri (Benchmark)",
+  "proj_fisformer_dataset_desc": "Önerilen modelin performansı, enerji, meteoroloji, ulaşım ve finans gibi çeşitli alanları kapsayan 7 farklı gerçek dünya çok değişkenli zaman serisi veri seti üzerinde test edilmiştir:",
+  "proj_fisformer_table_dataset": "Veri Seti",
+  "proj_fisformer_table_dim": "Değişken",
+  "proj_fisformer_table_freq": "Frekans",
+  "proj_fisformer_perf_title": "Performans ve Ablasyon Analizi",
+  "proj_fisformer_perf_desc": "FISformer, MSE (Ortalama Kare Hatası) ve MAE (Ortalama Mutlak Hata) metriklerinde, Informer, Autoformer, Fedformer, Crossformer ve iTransformer gibi güncel mimarileri geride bırakmıştır. Ayrıca ablasyon çalışmaları, FIS mekanizmasının standart Self-Attention mekanizmasına göre üstünlüğünü kanıtlamıştır.",
+  "proj_fisformer_table_model": "Model",
+  "fig1_caption": "Şekil 1. Önerilen FISformer modelinin genel mimarisi.",
+  "fig2_caption": "Şekil 2. FIS Tabanlı Token Etkileşimi. Sorgu ve anahtar tokenleri öğrenilebilir Gauss üyelik fonksiyonları ile bulanıklaştırılır.",
+  "fig4_caption": "Şekil 3. Traffic ve ECL veri setleri üzerinde tahmin sonuçlarının görselleştirilmesi.",
+  "fig5_caption": "Şekil 4. Farklı ayrım seviyelerinde sorgu ve anahtarlar için öğrenilmiş Gauss üyelik fonksiyonları."
 }

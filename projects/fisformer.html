@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-i18n="page_title_projects">DeepOlea — Projeler</title>
+<meta name="description" data-i18n="meta_description" content="DeepOlea, yapay zekâ ve makine öğrenmesini gerçek dünya bilişim çözümlerine dönüştüren bir teknoloji şirketidir." />
+<meta name="theme-color" content="#F2F3EC" />
+<link rel="icon" type="image/png" href="../images/favicon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --paper:#F2F3EC; --paper-2:#EAEBDF; --card:#FBFBF6;
+    --green-deep:#1B462B; --green:#3D6237; --ink:#26301F; --muted:#5E6A52;
+    --line:rgba(27,70,43,.16); --line-strong:rgba(27,70,43,.30);
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;color:var(--green-deep);font-weight:500;line-height:1.2}
+  
+  /* ---------- header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50; backdrop-filter:blur(10px);
+    background:linear-gradient(to bottom,rgba(242,243,236,.9),rgba(242,243,236,.5));
+    border-bottom:1px solid transparent;transition:border-color .4s ease,background .4s ease;
+  }
+  header.scrolled{border-bottom:1px solid var(--line);background:rgba(242,243,236,.94)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand img{height:34px;width:auto;display:block}
+  .brand .name{font-family:"Fraunces",serif;font-size:22px;font-weight:600;color:var(--green-deep);letter-spacing:.01em}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{font-size:14px;color:var(--ink);transition:color .25s}
+  .nav-links a:hover{color:var(--green-deep)}
+  .nav-cta{
+    font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.04em;
+    color:var(--green-deep)!important;border:1px solid var(--line-strong);
+    padding:8px 16px;border-radius:999px;transition:border-color .25s,background .25s; display: inline-block;
+  }
+  .nav-cta:hover{border-color:var(--green);background:rgba(61,98,55,.07)}
+  @media(max-width:680px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* ---------- Project Details ---------- */
+  .project-header { margin-bottom: 40px; border-bottom: 1px solid var(--line); padding-bottom: 30px; }
+  .project-title { font-size: clamp(2rem, 4vw, 2.8rem); margin: 15px 0; letter-spacing: -0.02em; }
+  .project-meta { font-family: "IBM Plex Mono", monospace; font-size: 14px; color: var(--muted); display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  
+  .project-section { margin-bottom: 60px; }
+  .project-text p { margin-bottom: 18px; font-size: 1.05rem; }
+  
+  /* Feature List for Methodology */
+  .method-list { list-style: none; margin: 20px 0; }
+  .method-list li { position: relative; padding-left: 30px; margin-bottom: 15px; font-size: 1.05rem; }
+  .method-list li::before { content: "→"; position: absolute; left: 0; color: var(--green); font-family: "IBM Plex Mono", monospace; font-weight: bold; }
+  .method-list strong { color: var(--green-deep); }
+
+  /* Images Layout */
+  .image-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 30px; }
+  .image-card img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .image-caption { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--muted); margin-top: 15px; font-style: italic; }
+
+  /* Two Column Image Grid */
+  .image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media(max-width: 800px) { .image-grid { grid-template-columns: 1fr; } }
+
+  /* Tables */
+  .table-container { overflow-x: auto; margin: 25px 0; background: var(--card); border-radius: 12px; border: 1px solid var(--line); }
+  table { width: 100%; border-collapse: collapse; white-space: nowrap; }
+  th, td { padding: 12px 18px; text-align: left; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+  th { background: rgba(27,70,43,.05); color: var(--green-deep); font-weight: 600; font-family: "IBM Plex Mono", monospace; font-size: 12px; text-transform: uppercase; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover { background: rgba(27,70,43,.03); }
+  .highlight-red { color: #d9534f; font-weight: 600; } 
+  .highlight-blue { color: #0275d8; text-decoration: underline; }
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:38px 0; margin-top: auto;}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .foot .brand{gap:10px}
+  .foot .brand img{height:26px}
+  .foot .brand .name{font-size:17px}
+  .foot .fine{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.04em;color:var(--muted)}
+</style>
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="../">
+      <img src="../images/deepolea-mark.png" alt="DeepOlea amblemi" />
+      <span class="name">DeepOlea</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../#yaptiklarimiz" data-i18n="nav_what_we_do">Ne yapıyoruz</a>
+      <a href="../#isim" data-i18n="nav_story">İsmin hikâyesi</a>
+      <a href="./" data-i18n="nav_projects">Projeler</a>
+      <a class="nav-cta" href="../#iletisim" data-i18n="nav_contact">İletişim</a>
+      
+      <select id="lang-selector">
+        <option value="tr">TR</option>
+        <option value="en">EN</option>
+      </select>
+    </nav>
+  </div>
+</header>
+
+<main id="top" style="flex: 1; padding-top: 130px; padding-bottom: 50px;">
+  <section class="wrap">
+    
+    <div class="project-header">
+        <a href="./" style="display: inline-block; margin-bottom: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 600; color: var(--green); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--green-deep)'" onmouseout="this.style.color='var(--green)'">← <span data-i18n="nav_projects">Projeler</span></a>      <h1 class="project-title" data-i18n="proj_fisformer_title">FISformer: Zaman Serisi Tahmini İçin Bulanık Çıkarım Sistemli Transformer</h1>
+      <div class="project-meta">
+        <span data-i18n="proj_fisformer_authors">Bülent HAZNEDAR ve Levent KARACAN</span>
+        <a href="https://doi.org/10.1109/TFUZZ.2026.3690012" target="_blank" class="nav-cta" data-i18n="proj_fisformer_doi">DOI: 10.1109/TFUZZ.2026.3690012</a>
+      </div>
+    </div>
+
+    <div class="project-section project-text">
+      <h2 style="margin-bottom: 15px;" data-i18n="proj_fisformer_abstract_title">Proje Özeti</h2>
+      <p data-i18n="proj_fisformer_abstract">Transformer modelleri zaman serisi tahmininde büyük ilerleme kaydetmiş olsa da...</p>
+      
+      <div class="image-card" style="margin-top: 30px;">
+        <img src="../images/fig1.png" alt="FISformer Architecture" />
+        <div class="image-caption" data-i18n="fig1_caption">Şekil 1. Önerilen FISformer modelinin genel mimarisi.</div>
+      </div>
+    </div>
+
+    <div class="project-section project-text">
+      <h2 style="margin-bottom: 15px;" data-i18n="proj_fisformer_method_title">Metodoloji: FIS Tabanlı Token Etkileşimi</h2>
+      <p data-i18n="proj_fisformer_method_desc">FISformer, geleneksel dot-product (nokta çarpım) benzerlik hesaplaması yerine birinci dereceden Sugeno tipi bir Bulanık Çıkarım Sistemi (FIS) kullanır. Bu süreç dört ana aşamadan oluşur:</p>
+      
+      <ul class="method-list">
+        <li data-i18n="proj_fisformer_method_1">Bulanıklaştırma (Fuzzification)...</li>
+        <li data-i18n="proj_fisformer_method_2">Kural Oluşturma (Rule Generation)...</li>
+        <li data-i18n="proj_fisformer_method_3">Durulaştırma (Defuzzification)...</li>
+        <li data-i18n="proj_fisformer_method_4">FIS Etkileşimi...</li>
+      </ul>
+
+      <div class="image-card">
+        <img src="../images/fig2.png" alt="FIS Interaction" />
+        <div class="image-caption" data-i18n="fig2_caption">Şekil 2. FIS Tabanlı Token Etkileşimi.</div>
+      </div>
+    </div>
+
+    <div class="project-section project-text">
+      <h2 style="margin-bottom: 15px;" data-i18n="proj_fisformer_dataset_title">Kullanılan Veri Setleri (Benchmark)</h2>
+      <p data-i18n="proj_fisformer_dataset_desc">Önerilen modelin performansı 7 farklı gerçek dünya çok değişkenli zaman serisi veri seti üzerinde test edilmiştir:</p>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="proj_fisformer_table_dataset">Veri Seti</th>
+              <th data-i18n="proj_fisformer_table_dim">Değişken</th>
+              <th>Dizi Uzunlukları</th>
+              <th data-i18n="proj_fisformer_table_freq">Frekans</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>ETTh1, ETTh2</td><td>7</td><td>(96, 192, 336, 720)</td><td>Hourly</td></tr>
+            <tr><td>ETTm1, ETTm2</td><td>7</td><td>(96, 192, 336, 720)</td><td>15 min</td></tr>
+            <tr><td>Weather</td><td>21</td><td>(96, 192, 336, 720)</td><td>10 min</td></tr>
+            <tr><td>Exchange</td><td>8</td><td>(96, 192, 336, 720)</td><td>Daily</td></tr>
+            <tr><td>ECL</td><td>321</td><td>(96, 192, 336, 720)</td><td>Hourly</td></tr>
+            <tr><td>Traffic</td><td>862</td><td>(96, 192, 336, 720)</td><td>Hourly</td></tr>
+            <tr><td>PEMS (03,04,07,08)</td><td>170 - 883</td><td>(12, 24, 48, 96)</td><td>5 min</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="project-section project-text">
+      <h2 style="margin-bottom: 15px;" data-i18n="proj_fisformer_perf_title">Performans ve Ablasyon Analizi</h2>
+      <p data-i18n="proj_fisformer_perf_desc">FISformer, MSE ve MAE metriklerinde diğer tüm mimarileri geride bırakmıştır...</p>
+      
+      <div class="image-grid">
+        <div class="image-card">
+          <img src="../images/fig4.png" alt="Traffic & ECL Results" />
+          <div class="image-caption" data-i18n="fig4_caption">Şekil 3. Tahmin sonuçlarının görselleştirilmesi.</div>
+        </div>
+        <div class="image-card">
+          <img src="../images/fig5.png" alt="Learned Memberships" />
+          <div class="image-caption" data-i18n="fig5_caption">Şekil 4. Öğrenilmiş Gauss üyelik fonksiyonları.</div>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="proj_fisformer_table_dataset">Veri Seti</th>
+              <th data-i18n="proj_fisformer_table_model">Model</th>
+              <th>MSE</th>
+              <th>MAE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2" style="font-weight: 500;">ECL</td>
+              <td>FISformer (Ours)</td>
+              <td class="highlight-red">0.172</td>
+              <td class="highlight-red">0.262</td>
+            </tr>
+            <tr>
+              <td>iTransformer (2024)</td>
+              <td class="highlight-blue">0.178</td>
+              <td class="highlight-blue">0.270</td>
+            </tr>
+            <tr>
+              <td rowspan="2" style="font-weight: 500; border-top: 1px solid var(--line);">Traffic</td>
+              <td style="border-top: 1px solid var(--line);">FISformer (Ours)</td>
+              <td class="highlight-red" style="border-top: 1px solid var(--line);">0.417</td>
+              <td class="highlight-red" style="border-top: 1px solid var(--line);">0.279</td>
+            </tr>
+            <tr>
+              <td>Self-Attention (Ablation)</td>
+              <td>0.428</td>
+              <td>0.282</td>
+            </tr>
+            <tr>
+              <td rowspan="2" style="font-weight: 500; border-top: 1px solid var(--line);">Weather</td>
+              <td style="border-top: 1px solid var(--line);">FISformer (Ours)</td>
+              <td class="highlight-red" style="border-top: 1px solid var(--line);">0.256</td>
+              <td class="highlight-red" style="border-top: 1px solid var(--line);">0.277</td>
+            </tr>
+            <tr>
+              <td>Self-Attention (Ablation)</td>
+              <td>0.258</td>
+              <td>0.278</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="../">
+      <img src="../images/deepolea-mark.png" alt="DeepOlea amblemi" />
+      <span class="name">DeepOlea</span>
+    </a>
+    <span class="fine">© 2026 DeepOlea · deepolea.com</span>
+  </div>
+</footer>
+
+<script>
+  var hdr=document.getElementById('hdr');
+  var onScroll=function(){hdr.classList.toggle('scrolled',window.scrollY>12)};
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  async function loadLanguage(langCode) {
+    try {
+      const pathPrefix = window.location.pathname.includes('/projects') ? '../' : '';
+      const response = await fetch(`${pathPrefix}lang/${langCode}.json`);
+      const translations = await response.json();
+      
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[key]) {
+          if (element.tagName === 'META') {
+            element.setAttribute('content', translations[key]);
+          } else if (element.tagName === 'IMG') {
+            element.setAttribute('alt', translations[key]);
+          } else {
+            element.innerHTML = translations[key];
+          }
+        }
+      });
+
+      localStorage.setItem('selectedLang', langCode);
+      document.documentElement.lang = langCode;
+
+      const langSelector = document.getElementById('lang-selector');
+      if(langSelector) { langSelector.value = langCode; }
+    } catch (error) {
+      console.error("Dil dosyası yüklenirken hata oluştu:", error);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    let savedLang = localStorage.getItem('selectedLang');
+    if (!savedLang) {
+      const browserLang = navigator.language || navigator.userLanguage;
+      savedLang = browserLang.toLowerCase().startsWith('tr') ? 'tr' : 'en';
+    }
+    loadLanguage(savedLang); 
+
+    const langSelector = document.getElementById('lang-selector');
+    if(langSelector) {
+      langSelector.addEventListener('change', (event) => {
+        loadLanguage(event.target.value);
+      });
+    }
+  });
+
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'selectedLang') {
+      loadLanguage(event.newValue);
+    }
+  });
+</script>
+</body>
+</html>
