@@ -1,1 +1,0 @@
-rsync -avz --exclude '.git' --exclude 'deploy.sh' --chown=www-data:www-data --chmod=D755,F644 ./ root@72.61.179.212:/var/www/html/DeepOlea/
