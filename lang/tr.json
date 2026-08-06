@@ -97,8 +97,6 @@
   "proj_acc_ai_desc": "Sistemde yapay zekâ hiçbir zaman kayıt sistemine doğrudan müdahale etmez; notlar, ölçme sayıları ve kanıtlar tamamen deterministik (kural tabanlı) kalır. AI yalnızca; sınav sorularının çıktılara yarı-otomatik eşlenmesi, ÖDR metin taslaklarının üretilmesi, boşluk analizi ve açık uçlu anketlerin değerlendirilmesi gibi süreçlerde \"asistan\" rolü üstlenir. Sistem, kiracılar (üniversiteler) arası kesin veri izolasyonu (tenant-isolated RAG) sağlar; kurumların verileri diğer kurumların AI modellerini eğitmek için kullanılmaz.",
   "proj_acc_tech_title": "Teknik Altyapı ve Hedefler",
   "proj_acc_tech_desc": "Platform, .NET tabanlı modern modüler monolit mimariyle inşa edilmektedir. İlişkisel veri yönetimi için PostgreSQL, yapay zekâ bağlam aramaları (RAG) için ise gelişmiş vektör veritabanları kullanılmaktadır. Ürünün MVP (Minimum Uygulanabilir Ürün) aşamasında, Gaziantep Üniversitesi Bilgisayar Mühendisliği bölümü referans alınarak MÜDEK Sürüm 3.0 altyapısı devreye alınmaktadır.",
-  "fig_acc_1": "Şekil 1. Akreditasyon Platformu İki Katmanlı Mimari Akışı.",
-  "fig_acc_2": "Şekil 2. OBE Omurgası ve Deterministik Ölçme Motoru.",
 
   "proj_card_acc_title": "DeepOlea Akreditasyon Platformu",
   "proj_card_acc_desc": "MÜDEK, HEPDAK, FEDEK gibi kuruluşlar için OBE tabanlı, yapılandırılabilir akreditasyon çerçeve motoru."
