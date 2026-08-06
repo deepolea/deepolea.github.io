@@ -13,7 +13,7 @@
   body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
-  h2{font-family:"Fraunces",Georgia,serif;color:var(--green-deep);font-weight:500;line-height:1.08}
+  h2,h3{font-family:"Fraunces",Georgia,serif;color:var(--green-deep);font-weight:500;line-height:1.08}
   
   header{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(10px);background:linear-gradient(to bottom,rgba(242,243,236,.9),rgba(242,243,236,.5));border-bottom:1px solid transparent;transition:border-color .4s ease;}
   header.scrolled{border-bottom:1px solid var(--line);background:rgba(242,243,236,.94)}
@@ -28,18 +28,29 @@
   .nav-cta:hover{border-color:var(--green);background:rgba(61,98,55,.07)}
   @media(max-width:680px){.nav-links a:not(.nav-cta){display:none}}
 
+  /* FOUC Engelleme */
+  body { opacity: 0; animation: forceReveal 0.1s forwards; animation-delay: 0.4s; }
+  body.lang-loaded { opacity: 1 !important; animation: none !important; transition: opacity 0.25s ease-in-out; }
+  @keyframes forceReveal { to { opacity: 1; } }
+
+  /* Project Cards */
+  .project-list { display: flex; flex-direction: column; gap: 30px; margin-top: 50px; }
+  .project-card { display: flex; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
+  .project-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(27,70,43,.08); border-color: var(--line-strong); }
+  .project-card-img { width: 280px; min-width: 280px; background: #fff; border-right: 1px solid var(--line); display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .project-card-img img { max-width: 100%; height: auto; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .project-card-content { padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+  .project-card-title { font-size: 1.6rem; margin-bottom: 12px; }
+  .project-card-desc { font-size: 1.05rem; color: var(--muted); margin-bottom: 20px; line-height: 1.6; }
+  .project-card-meta { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--green); font-weight: 600; margin-top: auto; }
+  @media(max-width: 768px) { .project-card { flex-direction: column; } .project-card-img { width: 100%; min-width: 100%; border-right: none; border-bottom: 1px solid var(--line); padding: 30px; } }
+
   footer{border-top:1px solid var(--line);padding:38px 0; margin-top: auto;}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
   .foot .brand{gap:10px}
   .foot .brand img{height:26px}
   .foot .brand .name{font-size:17px}
   .foot .fine{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.04em;color:var(--muted)}
-
-/* Dil yüklenene kadar sayfayı gizle, yüklendiğinde yumuşakça göster */
-body { opacity: 0; transition: opacity 0.25s ease-in-out; }
-body.lang-loaded { opacity: 1 !important; }
-
-
 </style>
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
@@ -68,10 +79,25 @@ body.lang-loaded { opacity: 1 !important; }
 <main id="top" style="flex: 1; padding-top: 150px; padding-bottom: 50px;">
   <section style="padding: 40px 0;">
     <div class="wrap">
-      <div style="margin-bottom:52px; max-width:42em;">
+      <div style="max-width:42em;">
         <h2 style="font-size:clamp(2rem,4.4vw,2.85rem);letter-spacing:-.015em; margin-bottom: 20px;" data-i18n="projects_company_title">Projeler</h2>
         <p style="color: var(--muted); font-size: 1.15rem; line-height: 1.8;" data-i18n="projects_company_desc">DeepOlea'nın temel kuruluş amacı, tamamen yapay zekâ tabanlı veya yapay zekâ destekli yenilikçi bilişim çözümleri üretmektir. Kurumsal projelerimiz yakında bu alanda listelenecektir.</p>
       </div>
+
+      <div class="project-list">
+        <!-- Akreditasyon Platformu Projesi -->
+        <a href="accreditation.html" class="project-card">
+          <div class="project-card-img">
+            <img src="../images/projects/accreditation/accreditation-thumb.jpg" alt="DeepOlea Accreditation" onerror="this.style.display='none'">
+          </div>
+          <div class="project-card-content">
+            <h3 class="project-card-title" data-i18n="proj_card_acc_title">DeepOlea Akreditasyon Platformu</h3>
+            <p class="project-card-desc" data-i18n="proj_card_acc_desc">MÜDEK, HEPDAK, FEDEK gibi kuruluşlar için OBE tabanlı, yapılandırılabilir akreditasyon çerçeve motoru.</p>
+            <span class="project-card-meta" data-i18n="proj_card_read_more">Projeyi İncele →</span>
+          </div>
+        </a>
+      </div>
+      
     </div>
   </section>
 </main>
@@ -83,8 +109,7 @@ body.lang-loaded { opacity: 1 !important; }
   </div>
 </footer>
 
+<!-- Merkezi JS Dosyasını Bağla -->
 <script src="../js/main.js"></script>
-</body>
-</html>
 </body>
 </html>

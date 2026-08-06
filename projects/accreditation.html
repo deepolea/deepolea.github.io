@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-i18n="page_title_projects">DeepOlea — Projeler</title>
+<link rel="icon" type="image/png" href="../images/favicon.png" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root{--paper:#F2F3EC; --card:#FBFBF6; --green-deep:#1B462B; --green:#3D6237; --ink:#26301F; --muted:#5E6A52; --line:rgba(27,70,43,.16); --line-strong:rgba(27,70,43,.30); --maxw:1120px;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;color:var(--green-deep);font-weight:500;line-height:1.2}
+  
+  header{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(10px);background:linear-gradient(to bottom,rgba(242,243,236,.9),rgba(242,243,236,.5));border-bottom:1px solid transparent;transition:border-color .4s ease;}
+  header.scrolled{border-bottom:1px solid var(--line);background:rgba(242,243,236,.94)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand img{height:34px;width:auto;display:block}
+  .brand .name{font-family:"Fraunces",serif;font-size:22px;font-weight:600;color:var(--green-deep);letter-spacing:.01em}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{font-size:14px;color:var(--ink);transition:color .25s}
+  .nav-links a:hover{color:var(--green-deep)}
+  .nav-cta{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.04em;color:var(--green-deep)!important;border:1px solid var(--line-strong);padding:8px 16px;border-radius:999px;transition:border-color .25s,background .25s;}
+  .nav-cta:hover{border-color:var(--green);background:rgba(61,98,55,.07)}
+  @media(max-width:680px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* FOUC Engelleme */
+  body { opacity: 0; animation: forceReveal 0.1s forwards; animation-delay: 0.4s; }
+  body.lang-loaded { opacity: 1 !important; animation: none !important; transition: opacity 0.25s ease-in-out; }
+  @keyframes forceReveal { to { opacity: 1; } }
+
+  /* Geri Dön Butonu */
+  .back-btn { display: inline-block; margin-bottom: 30px; font-family: 'IBM Plex Mono', monospace; font-size: 18px; font-weight: 700; color: var(--green); text-decoration: none; transition: color 0.3s; }
+  .back-btn:hover { color: var(--green-deep); }
+
+  /* İçerik Stilleri */
+  .project-header { margin-bottom: 40px; border-bottom: 1px solid var(--line); padding-bottom: 30px; }
+  .project-title { font-size: clamp(2rem, 4vw, 2.8rem); margin: 15px 0 5px 0; letter-spacing: -0.02em; }
+  .project-subtitle { font-size: 1.3rem; color: var(--green); font-weight: 500; margin-bottom: 15px; }
+  .project-meta { font-family: "IBM Plex Mono", monospace; font-size: 14px; color: var(--muted); display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  .project-section { margin-bottom: 60px; }
+  .project-section p { margin-bottom: 18px; font-size: 1.05rem; }
+  
+  /* Liste Stili */
+  .method-list { list-style: none; margin: 20px 0; }
+  .method-list li { position: relative; padding-left: 30px; margin-bottom: 15px; font-size: 1.05rem; }
+  .method-list li::before { content: "→"; position: absolute; left: 0; color: var(--green); font-family: "IBM Plex Mono", monospace; font-weight: bold; }
+
+  /* Görsel Stilleri */
+  .image-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 30px; }
+  .image-card img { max-width: 100%; height: auto; max-height: 500px; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .image-caption { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--muted); margin-top: 15px; font-style: italic; text-align: center; }
+
+  footer{border-top:1px solid var(--line);padding:38px 0; margin-top: auto;}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .foot .brand{gap:10px}
+  .foot .brand img{height:26px}
+  .foot .brand .name{font-size:17px}
+  .foot .fine{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.04em;color:var(--muted)}
+</style>
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="../">
+      <img src="../images/deepolea-mark.png" alt="DeepOlea amblemi" />
+      <span class="name">DeepOlea</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../#yaptiklarimiz" data-i18n="nav_what_we_do">Ne yapıyoruz</a>
+      <a href="../#isim" data-i18n="nav_story">İsmin hikâyesi</a>
+      <a href="../lab/" data-i18n="nav_lab">DeepOlea Lab</a>
+      <a href="./" data-i18n="nav_projects">Projeler</a>
+      <a class="nav-cta" href="../#iletisim" data-i18n="nav_contact">İletişim</a>
+      
+      <select id="lang-selector" style="background: transparent; border: 1px solid var(--line-strong); color: var(--green-deep); padding: 4px 8px; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; cursor: pointer; outline: none;">
+        <option value="tr">TR</option>
+        <option value="en">EN</option>
+      </select>
+    </nav>
+  </div>
+</header>
+
+<main id="top" style="flex: 1; padding-top: 130px; padding-bottom: 50px;">
+  <section class="wrap">
+    
+    <div class="project-header">
+      <a href="./" class="back-btn">← <span data-i18n="projects_company_title">Projeler</span></a>      
+      <h1 class="project-title" data-i18n="proj_acc_title">DeepOlea Akreditasyon Platformu</h1>
+      <div class="project-subtitle" data-i18n="proj_acc_subtitle">Yapılandırılabilir Akreditasyon Çerçeve Motoru</div>
+      <div class="project-meta">
+        <span data-i18n="proj_acc_partner">Pilot & Referans: Gaziantep Üniversitesi</span>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <h2 style="margin-bottom: 15px;" data-i18n="proj_acc_abstract_title">Proje Özeti</h2>
+      <p data-i18n="proj_acc_abstract">İnşa edilen bu sistem, yalnızca tek bir kuruluşa (ör. MÜDEK) hizmet eden statik bir araç değil; yapılandırılabilir bir akreditasyon çerçeve motorudur. YÖKAK çatısı altındaki MÜDEK, HEPDAK, FEDEK, KİDR gibi tüm yetkili kuruluşlar aynı Çıktı Temelli Eğitim (OBE) omurgasını paylaşır. Sistem, değişen ölçüt setlerini ve rapor şablonlarını kodla değil, sisteme yüklenen veri tabanlı "çerçeve paketleri" ile yönetir.</p>
+    </div>
+
+    <div class="project-section">
+      <h2 style="margin-bottom: 15px;" data-i18n="proj_acc_arch_title">İki Katmanlı Mimari Modeli</h2>
+      <p data-i18n="proj_acc_arch_desc">Sistem, değişmez bir çekirdek ve esnek bir yapılandırma katmanı olmak üzere iki temel katmandan oluşur:</p>
+      <ul class="method-list">
+        <li data-i18n="proj_acc_arch_core"><strong>Değişmez Çekirdek:</strong> OBE omurgası, kanıt havuzu, çok kiracılılık (multi-tenancy) ve rol bazlı erişim kontrolü (RBAC).</li>
+        <li data-i18n="proj_acc_arch_pkg"><strong>Değişen Katman (Çerçeve Paketleri):</strong> Ölçüt ağacı, çıktı setleri, rapor şablonları, eşleştirme şablonları ve kuruluşa özgü uzantı noktaları.</li>
+      </ul>
+      
+      <!-- İleride eklenecek görsel için yer tutucu -->
+      <div class="image-card" style="margin-top: 30px;">
+        <img src="../images/projects/accreditation/accreditation-fig1.jpg" alt="Mimari Tasarım" onerror="this.style.display='none'" />
+        <div class="image-caption" data-i18n="fig_acc_1">Şekil 1. Akreditasyon Platformu İki Katmanlı Mimari Akışı.</div>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <h2 style="margin-bottom: 15px;" data-i18n="proj_acc_modules_title">Temel İşlevsel Modüller</h2>
+      <ul class="method-list">
+        <li data-i18n="proj_acc_mod_1">Program tanımı ve kuruluş çıktı eşleştirmesi.</li>
+        <li data-i18n="proj_acc_mod_2">OBS/Bologna entegrasyonlu müfredat ve ders kataloğu yönetimi.</li>
+        <li data-i18n="proj_acc_mod_3">Deterministik kurallarla çalışan ölçme-değerlendirme motoru ve ulaşım hesabı.</li>
+        <li data-i18n="proj_acc_mod_4">Polimorfik, versiyonlu ve denetlenebilir kanıt (doküman) havuzu.</li>
+        <li data-i18n="proj_acc_mod_5">Yapay zekâ ile desteklenen anket ve paydaş geri bildirimi analizi.</li>
+        <li data-i18n="proj_acc_mod_6">PUKÖ (Planla-Uygula-Kontrol-Önlem) döngüsü ile sürekli iyileştirme takibi.</li>
+        <li data-i18n="proj_acc_mod_7">Çerçeve paketinden gelen şablonlara dayalı otomatik Özdeğerlendirme Raporu (ÖDR) üreteci.</li>
+      </ul>
+    </div>
+
+    <div class="project-section">
+      <h2 style="margin-bottom: 15px;" data-i18n="proj_acc_ai_title">Yapay Zekâ (AI) Katmanı</h2>
+      <p data-i18n="proj_acc_ai_desc">Yapay zekâ hiçbir zaman kayıt sistemine doğrudan yazmaz; ölçme sayıları ve kanıtlar deterministik kalır. AI yalnızca yarı otomatik eşleme, ÖDR taslağı üretimi, boşluk analizi ve açık uçlu anket değerlendirmeleri için öneriler sunar. Kiracılar (üniversiteler) arası kesin izolasyon (tenant-isolated RAG) sağlanır ve kurumlar arası eğitim yapılmaz.</p>
+    </div>
+
+    <div class="project-section">
+      <h2 style="margin-bottom: 15px;" data-i18n="proj_acc_tech_title">Teknik Altyapı ve Hedefler</h2>
+      <p data-i18n="proj_acc_tech_desc">Sistem .NET tabanlı modüler monolit mimari ile geliştirilmekte olup, veritabanı olarak PostgreSQL ve RAG yapısı için vektör veritabanı kullanmaktadır. MVP (Minimum Uygulanabilir Ürün) aşamasında, Gaziantep Üniversitesi Bilgisayar Mühendisliği bölümü referans alınarak MÜDEK Sürüm 3.0 paketi üzerinde çalışılmaktadır.</p>
+      
+      <!-- İleride eklenecek görsel için yer tutucu -->
+      <div class="image-card" style="margin-top: 30px;">
+        <img src="../images/projects/accreditation/accreditation-fig2.jpg" alt="OBE Engine" onerror="this.style.display='none'" />
+        <div class="image-caption" data-i18n="fig_acc_2">Şekil 2. OBE Omurgası ve Deterministik Ölçme Motoru.</div>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="../">
+      <img src="../images/deepolea-mark.png" alt="DeepOlea amblemi" />
+      <span class="name">DeepOlea</span>
+    </a>
+    <span class="fine">© 2026 DeepOlea · deepolea.com</span>
+  </div>
+</footer>
+
+<!-- Merkezi JS Dosyasını Bağla -->
+<script src="../js/main.js"></script>
+</body>
+</html>
