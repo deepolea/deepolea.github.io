@@ -70,6 +70,8 @@ rsync -avz --delete \
   --exclude '.git' \
   --exclude 'deploy.sh' \
   --exclude '.gitignore' \
+  --exclude 'README.md' \
+  --exclude 'server_password.txt' \
   --chown=www-data:www-data \
   --chmod=D755,F644 \
   ./ USER@YOUR_SERVER_IP:/path/to/remote/directory/ 
