@@ -51,9 +51,15 @@
   .method-list li { position: relative; padding-left: 30px; margin-bottom: 15px; font-size: 1.05rem; }
   .method-list li::before { content: "→"; position: absolute; left: 0; color: var(--green); font-family: "IBM Plex Mono", monospace; font-weight: bold; }
 
-  /* Görsel Stilleri */
-  .image-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 30px; }
-  .image-card img { max-width: 100%; height: auto; max-height: 500px; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  /* Ürün Vitrini / Galeri Stilleri (Akademik Olmayan, Proje Odaklı Görünüm) */
+  .gallery-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 24px; }
+  @media (min-width: 768px) { .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); } }
+  
+  .gallery-item { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .gallery-item:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(27,70,43,0.08); }
+  
+  .gallery-item img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); object-fit: contain; display: block; margin: 0 auto; }
+  .gallery-desc { font-size: 0.95rem; color: var(--muted); text-align: center; font-weight: 500; }
 
   footer{border-top:1px solid var(--line);padding:38px 0; margin-top: auto;}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
@@ -110,11 +116,6 @@
         <li data-i18n="proj_acc_arch_core"><strong>Değişmez Çekirdek:</strong> OBE omurgası, kanıt havuzu, çok kiracılılık (multi-tenancy) ve rol bazlı erişim kontrolü (RBAC).</li>
         <li data-i18n="proj_acc_arch_pkg"><strong>Değişen Katman (Çerçeve Paketleri):</strong> Ölçüt ağacı, çıktı setleri, rapor şablonları, eşleştirme şablonları ve kuruluşa özgü uzantı noktaları.</li>
       </ul>
-      
-      <!-- İleride eklenecek görsel için yer tutucu -->
-      <div class="image-card" style="margin-top: 30px;">
-        <img src="../images/projects/accreditation/accreditation-fig1.jpg" alt="Mimari Tasarım" onerror="this.style.display='none'" />
-      </div>
     </div>
 
     <div class="project-section">
@@ -138,10 +139,28 @@
     <div class="project-section">
       <h2 style="margin-bottom: 15px;" data-i18n="proj_acc_tech_title">Teknik Altyapı ve Hedefler</h2>
       <p data-i18n="proj_acc_tech_desc">Sistem .NET tabanlı modüler monolit mimari ile geliştirilmekte olup, veritabanı olarak PostgreSQL ve RAG yapısı için vektör veritabanı kullanmaktadır. MVP (Minimum Uygulanabilir Ürün) aşamasında, Gaziantep Üniversitesi Bilgisayar Mühendisliği bölümü referans alınarak MÜDEK Sürüm 3.0 paketi üzerinde çalışılmaktadır.</p>
+    </div>
+
+    <!-- Yeni Eklenen Sistem Arayüzü / Görsel Vitrini Bölümü -->
+    <div class="project-section">
+      <h2 style="margin-bottom: 15px;" data-i18n="proj_acc_gallery_title">Sistem Arayüzü</h2>
+      <p data-i18n="proj_acc_gallery_desc">Geliştirilme aşamasından arayüz ve modül görünümleri:</p>
       
-      <!-- İleride eklenecek görsel için yer tutucu -->
-      <div class="image-card" style="margin-top: 30px;">
-        <img src="../images/projects/accreditation/accreditation-fig2.jpg" alt="OBE Engine" onerror="this.style.display='none'" />
+      <div class="gallery-grid">
+        <!-- 1. Görsel (Şu an elinde olan fig1.png) -->
+        <div class="gallery-item">
+          <!-- Dosya yolunu kendi yapına göre (ör. ../images/fig1.png) ayarlayabilirsin -->
+          <img src="../images/projects/accreditation/fig1.png" alt="Sistem Giriş ve Duyurular Ekranı" onerror="this.style.display='none'" />
+          <div class="gallery-desc" data-i18n="proj_acc_fig1_desc">Sistem Giriş ve Duyurular Ekranı</div>
+        </div>
+
+        <!-- 2. Görsel (İleride eklenecekler için hazır şablon, içini doldurana kadar görünmez) -->
+        <!--
+        <div class="gallery-item">
+          <img src="fig2.png" alt="Panel Görünümü" onerror="this.style.display='none'" />
+          <div class="gallery-desc" data-i18n="proj_acc_fig2_desc">Modül Panel Görünümü</div>
+        </div>
+        -->
       </div>
     </div>
 

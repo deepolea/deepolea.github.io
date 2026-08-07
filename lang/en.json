@@ -97,6 +97,9 @@
   "proj_acc_ai_desc": "In this system, AI never writes directly to the system of record; grades, measurement numbers, and evidence remain completely deterministic (rule-based). AI acts solely as an \"assistant\" for tasks such as semi-automatic mapping of exam questions to outcomes, drafting ÖDR text, gap analysis, and evaluating open-ended surveys. The system ensures strict data isolation (tenant-isolated RAG) between universities; one institution's data is never used to train models for another.",
   "proj_acc_tech_title": "Technical Infrastructure and Goals",
   "proj_acc_tech_desc": "The platform is built on a modern, .NET-based modular monolith architecture. It utilizes PostgreSQL for relational data management and advanced vector databases for AI context retrieval (RAG). For the MVP (Minimum Viable Product) phase, the MÜDEK Version 3.0 framework is being deployed, using the Gaziantep University Computer Engineering department as the primary reference.",
+  "proj_acc_gallery_title": "System Interface",
+  "proj_acc_gallery_desc": "Interface and module views from the development phase:",
+  "proj_acc_fig1_desc": "System Login and Announcements Screen",
 
   "proj_card_acc_title": "DeepOlea Accreditation Platform",
   "proj_card_acc_desc": "OBE-based, configurable accreditation framework engine for authorized bodies like MÜDEK, HEPDAK, and FEDEK."
