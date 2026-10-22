@@ -28,9 +28,6 @@
   "section_contact_title": "Birlikte bir şey kuralım.",
   "section_contact_desc": "Bir fikriniz, bir projeniz ya da bir sorunuz mu var? Konuşmaktan memnuniyet duyarız.",
   "contact_location": "Gaziantep, Türkiye",
-  "projects_page_eyebrow": "Çalışmalar",
-  "projects_page_title": "Projeler",
-  "projects_page_desc": "Geliştirilmekte olan derin öğrenme modelleri, U-Net ve Autoencoder mimarileri ile yürütülen araştırmalar ve diğer yazılım projeleri yakında bu alanda listelenecektir.",
   "alt_logo": "DeepOlea logo",
   "alt_mark": "DeepOlea amblemi",
   "proj_card_fisformer_title": "FISformer: Zaman Serisi Tahmini",
@@ -72,10 +69,10 @@
   "btn_copy": "Kopyala",
   "nav_lab": "DeepOlea Lab",
   "projects_company_title": "Projeler",
-  "projects_company_desc": "DeepOlea'nın temel kuruluş amacı, tamamen yapay zekâ tabanlı veya yapay zekâ destekli yenilikçi bilişim çözümleri üretmektir. Bu vizyon doğrultusunda geliştirdiğimiz kurumsal platformları ve yazılım çözümlerini aşağıda inceleyebilirsiniz.",  "lab_academic_title": "Akademik Çalışmalar",
+  "projects_company_desc": "DeepOlea'nın temel kuruluş amacı, tamamen yapay zekâ tabanlı veya yapay zekâ destekli yenilikçi bilişim çözümleri üretmektir. Bu vizyon doğrultusunda geliştirdiğimiz kurumsal platformları ve yazılım çözümlerini aşağıda inceleyebilirsiniz.",
+  "lab_academic_title": "Akademik Çalışmalar",
   "lab_academic_desc": "Geliştirilmekte olan derin öğrenme modelleri, yürütülen araştırmalar ve yayımlanan bilimsel makalelerimiz bu laboratuvar çatısı altında sunulmaktadır.",
   "nav_back_lab": "DeepOlea Lab",
-
   "proj_acc_title": "DeepOlea Akreditasyon Platformu",
   "proj_acc_subtitle": "Yapılandırılabilir Akreditasyon Çerçeve Motoru",
   "proj_acc_partner": "Pilot & Referans: Gaziantep Üniversitesi",
@@ -100,7 +97,6 @@
   "proj_acc_gallery_title": "Sistem Arayüzü",
   "proj_acc_gallery_desc": "Geliştirilme aşamasından arayüz ve modül görünümleri:",
   "proj_acc_fig1_desc": "Sistem Giriş ve Duyurular Ekranı",
-
   "proj_card_acc_title": "DeepOlea Akreditasyon Platformu",
   "proj_card_acc_desc": "MÜDEK, HEPDAK, FEDEK gibi kuruluşlar için OBE tabanlı, yapılandırılabilir akreditasyon çerçeve motoru."
 }

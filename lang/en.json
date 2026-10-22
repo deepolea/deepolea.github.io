@@ -28,9 +28,6 @@
   "section_contact_title": "Let's build something together.",
   "section_contact_desc": "Do you have an idea, a project, or a question? We'd be happy to talk.",
   "contact_location": "Gaziantep, Turkey",
-  "projects_page_eyebrow": "Works",
-  "projects_page_title": "Projects",
-  "projects_page_desc": "Deep learning models under development, research conducted with U-Net and Autoencoder architectures, and other software projects will be listed here soon.",
   "alt_logo": "DeepOlea logo",
   "alt_mark": "DeepOlea emblem",
   "proj_card_fisformer_title": "FISformer: Time Series Forecasting",
@@ -72,10 +69,10 @@
   "btn_copy": "Copy",
   "nav_lab": "DeepOlea Lab",
   "projects_company_title": "Projects",
-  "projects_company_desc": "The core founding purpose of DeepOlea is to produce fully AI-based or AI-supported innovative IT solutions. You can explore our corporate platforms and software solutions developed in line with this vision below.",  "lab_academic_title": "Academic Studies",
+  "projects_company_desc": "The core founding purpose of DeepOlea is to produce fully AI-based or AI-supported innovative IT solutions. You can explore our corporate platforms and software solutions developed in line with this vision below.",
+  "lab_academic_title": "Academic Studies",
   "lab_academic_desc": "Deep learning models under development, ongoing research, and our published scientific papers are presented under this laboratory umbrella.",
   "nav_back_lab": "DeepOlea Lab",
-
   "proj_acc_title": "DeepOlea Accreditation Platform",
   "proj_acc_subtitle": "Configurable Accreditation Framework Engine",
   "proj_acc_partner": "Pilot & Reference: Gaziantep University",
@@ -100,7 +97,6 @@
   "proj_acc_gallery_title": "System Interface",
   "proj_acc_gallery_desc": "Interface and module views from the development phase:",
   "proj_acc_fig1_desc": "System Login and Announcements Screen",
-
   "proj_card_acc_title": "DeepOlea Accreditation Platform",
   "proj_card_acc_desc": "OBE-based, configurable accreditation framework engine for authorized bodies like MÜDEK, HEPDAK, and FEDEK."
 }
